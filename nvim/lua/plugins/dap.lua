@@ -1,3 +1,11 @@
+local function get_python_path()
+  local venv = vim.fn.getcwd() .. "/venv/bin/python"
+  if vim.fn.executable(venv) == 1 then
+    return venv
+  end
+  return "python3"
+end
+
 return {
   {
     "mfussenegger/nvim-dap",
@@ -30,6 +38,16 @@ return {
             mason_registry.get_package("debugpy"):install()
           end
           require("dap-python").setup(vim.fn.expand("$MASON/packages/debugpy/venv/bin/python"))
+
+          local dap = require("dap")
+          table.insert(dap.configurations.python, 1, {
+            type = "python",
+            request = "launch",
+            name = "Launch (project)",
+            program = "${file}",
+            cwd = "${workspaceFolder}",
+            env = { PYTHONPATH = "${workspaceFolder}" },
+          })
         end,
       },
     },
@@ -67,7 +85,10 @@ return {
         "<leader>rx",
         function()
           local file = vim.fn.expand("%:p")
-          Snacks.terminal.toggle("python3 " .. vim.fn.shellescape(file), { interactive = false })
+          local py = get_python_path()
+          local cwd = vim.fn.shellescape(vim.fn.getcwd())
+          local cmd = "PYTHONPATH=" .. cwd .. " " .. py .. " " .. vim.fn.shellescape(file)
+          Snacks.terminal.toggle(cmd, { interactive = false })
         end,
         ft = "python",
         desc = "Run current file",
@@ -76,7 +97,10 @@ return {
         "<leader>ri",
         function()
           local file = vim.fn.expand("%:p")
-          Snacks.terminal.toggle("python3 -i " .. vim.fn.shellescape(file))
+          local py = get_python_path()
+          local cwd = vim.fn.shellescape(vim.fn.getcwd())
+          local cmd = "PYTHONPATH=" .. cwd .. " " .. py .. " -i " .. vim.fn.shellescape(file)
+          Snacks.terminal.toggle(cmd)
         end,
         ft = "python",
         desc = "Run file (interactive)",
