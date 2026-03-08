@@ -51,6 +51,7 @@ return {
           dap = { justMyCode = false },
           python = get_python_path(),
           runner = "pytest",
+          args = { "-n", "auto" },
         }),
       },
     })
