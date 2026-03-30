@@ -1,10 +1,10 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "echasnovski/mini.icons" },
+  dependencies = { "echasnovski/mini.icons", "catppuccin" },
   config = function()
     require("lualine").setup({
       options = {
-        theme = "catppuccin",
+        theme = "catppuccin-mocha",
         globalstatus = true,
       },
       sections = {

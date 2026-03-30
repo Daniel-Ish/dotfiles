@@ -16,12 +16,7 @@ return {
     formatters_by_ft = {
       python = { "ruff_organize_imports", "ruff_format" },
     },
-    format_on_save = function(bufnr)
-      local ft = vim.bo[bufnr].filetype
-      if ft == "python" then
-        return { timeout_ms = 3000, lsp_fallback = true }
-      end
-    end,
+    format_on_save = false,
   },
   init = function()
     local mr = require("mason-registry")

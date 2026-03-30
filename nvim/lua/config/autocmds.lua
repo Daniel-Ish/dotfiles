@@ -21,3 +21,22 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.colorcolumn = "120"
   end,
 })
+
+-- Auto-activate venv in terminal
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function()
+    local cwd = vim.fn.getcwd()
+    for _, dir in ipairs({ "venv", ".venv" }) do
+      local activate = cwd .. "/" .. dir .. "/bin/activate"
+      if vim.fn.filereadable(activate) == 1 then
+        vim.defer_fn(function()
+          local chan = vim.b.terminal_job_id
+          if chan then
+            vim.api.nvim_chan_send(chan, "source " .. activate .. " && clear\n")
+          end
+        end, 100)
+        return
+      end
+    end
+  end,
+})
