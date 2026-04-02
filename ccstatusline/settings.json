@@ -1,0 +1,98 @@
+{
+  "version": 3,
+  "lines": [
+    [
+      {
+        "id": "1",
+        "type": "model",
+        "color": ""
+      },
+      {
+        "id": "2",
+        "type": "separator"
+      },
+      {
+        "id": "3",
+        "type": "tokens-input",
+        "color": "cyan"
+      },
+      {
+        "id": "4",
+        "type": "separator"
+      },
+      {
+        "id": "5",
+        "type": "tokens-output",
+        "color": "brightRed"
+      },
+      {
+        "id": "6",
+        "type": "separator"
+      },
+      {
+        "id": "7",
+        "type": "context-percentage",
+        "color": "brightWhite"
+      },
+      {
+        "id": "28a9cb79-624b-4456-864b-99079816979f",
+        "type": "flex-separator"
+      },
+      {
+        "id": "ce41ef8e-66d9-457c-8b56-88174d76d6d6",
+        "type": "session-clock",
+        "color": "magenta"
+      },
+      {
+        "id": "559b7d19-2dfa-42e1-b5d4-102f2f88af1f",
+        "type": "separator"
+      },
+      {
+        "id": "b4d98328-be86-4b87-a3b4-884f1cc6fdba",
+        "type": "session-cost",
+        "color": "brightGreen"
+      }
+    ],
+    [
+      {
+        "id": "ff298e94-4bb2-4cd7-a93c-b07f8dc2471b",
+        "type": "git-branch",
+        "color": "cyan"
+      },
+      {
+        "id": "92a08cbd-3635-4960-bc27-c0a6ab605001",
+        "type": "separator"
+      },
+      {
+        "id": "7d04a703-bf9f-4c0d-9804-d14101c21ddc",
+        "type": "git-worktree"
+      },
+      {
+        "id": "cce5b88d-90b1-4d23-b55d-4a4cd934b3a5",
+        "type": "separator"
+      },
+      {
+        "id": "d78d547e-43ea-4067-8180-22e894c9c76e",
+        "type": "git-changes"
+      }
+    ],
+    []
+  ],
+  "flexMode": "full-minus-40",
+  "compactThreshold": 60,
+  "colorLevel": 3,
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "powerline": {
+    "enabled": false,
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [],
+    "autoAlign": false
+  }
+}
